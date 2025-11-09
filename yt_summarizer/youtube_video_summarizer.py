@@ -222,86 +222,14 @@ class YoutubeVideoSummarizer:
             print(f"Error processing video: {str(e)}")
             return None
 
-
-def get_video_process_result(yt_url, llm_type, llm_model_name, embedding_type):
-    # Initialize summarizer
-    summarizer = YoutubeVideoSummarizer(
-        llm_type=llm_type,
-        llm_model_name=llm_model_name,
-        embedding_type=embedding_type,
-    )
-    result = summarizer.process_video(yt_url)
-    return result
-
-# def main():
-#     # use these urls for testing
-#     urls = [
-#         "https://www.youtube.com/watch?v=v48gJFQvE1Y&ab_channel=BrockMesarich%7CAIforNonTechies",
-#         "https://www.youtube.com/watch?v=XwZkNaTYBQI&ab_channel=TheGadgetGameShow%3AWhatTheHeckIsThat%3F%21",
-#     ]
-#     # Get model preferences
-#     print("\nAvailable LLM Models:")
-#     print("1. OpenAI GPT-4")
-#     print("2. Ollama Llama3.2")
-#     llm_choice = input("Choose LLM model (1/2): ").strip()
 #
-#     print("\nAvailable Embeddings:")
-#     print("1. OpenAI")
-#     print("2. Chroma Default")
-#     print("3. Nomic (via Ollama)")
-#     embedding_choice = input("Choose embeddings (1/2/3): ").strip()
 #
-#     # Configure model settings
-#     llm_type = "openai" if llm_choice == "1" else "ollama"
-#     llm_model_name = "gpt-4" if llm_choice == "1" else "llama3.2"
-#
-#     if embedding_choice == "1":
-#         embedding_type = "openai"
-#     elif embedding_choice == "2":
-#         embedding_type = "chroma"
-#     else:
-#         embedding_type = "nomic"
-#
-#     try:
-#         # Initialize summarizer
-#         summarizer = YoutubeVideoSummarizer(
-#             llm_type=llm_type,
-#             llm_model_name=llm_model_name,
-#             embedding_type=embedding_type,
-#         )
-#
-#         # Display configuration
-#         model_info = summarizer.get_model_info()
-#         print("\nCurrent Configuration:")
-#         print(f"LLM: {model_info['llm_type']} ({model_info['llm_model']})")
-#         print(f"Embeddings: {model_info['embedding_type']}")
-#
-#         # Process video
-#         url = input("\nEnter YouTube URL: ")
-#         print(f"\nProcessing video...")
-#         result = summarizer.process_video(url)
-#
-#         if result:
-#             print(f"\nVideo Title: {result['title']}")
-#             print("\nSummary:")
-#             print(result["summary"])
-#
-#             # Interactive Q&A
-#             print("\nYou can now ask questions about the video (type 'quit' to exit)")
-#             while True:
-#                 query = input("\nYour question: ").strip()
-#                 if query.lower() == "quit":
-#                     break
-#                 if query:
-#                     response = result["qa_chain"].invoke({"question": query})
-#                     print("\nAnswer:", response["answer"])
-#
-#             # Option to see full transcript
-#             if input("\nWant to see the full transcript? (y/n): ").lower() == "y":
-#                 print("\nFull Transcript:")
-#                 print(result["full_transcript"])
-#
-#     except Exception as e:
-#         print(f"Error: {str(e)}")
-#         print("Make sure required models and APIs are properly configured.")
-#
+# def get_video_process_result(yt_url, llm_type, llm_model_name, embedding_type):
+#     # Initialize summarizer
+#     summarizer = YoutubeVideoSummarizer(
+#         llm_type=llm_type,
+#         llm_model_name=llm_model_name,
+#         embedding_type=embedding_type,
+#     )
+#     result = summarizer.process_video(yt_url)
+#     return result
